@@ -6,16 +6,12 @@ def tasl_1___ruby_version()
   puts "Ruby Version: #{patch_level}"
 end
 
-#tasl_1___ruby_version
-
 def task_2___date_time()
   date = Time.new
   date_format = date.strftime("%d/%m/%Y %H:%M")
 
   puts "Current Date and Time: " + date_format
 end
-
-#task_2___date_time
 
 def task_3___string_n_copy(string, n)
   output = ""
@@ -27,24 +23,33 @@ def task_3___string_n_copy(string, n)
   puts output
 end
 
-#task_3___string_n_copy("abo", 5)
+def task_4___compute_circle_parameter()
 
-def task_4___compute_circle_parameter(radius)
+  puts "Input the radius of the circle:"
+  radius = gets.to_i
+
   pi = Math::PI
   area = radius ** 2 * pi
+  perimeter = 2 * pi * radius
 
-  radious_value = "Input the radius of the circle: The perimeter is " + radius.to_s + "."
+  perimeter_value = "The perimeter is " + perimeter.to_s + "."
   area_value = "The area is " + area.to_s + "."
 
   #return radious_value, area_value
-  puts radious_value
+  puts perimeter_value
   puts area_value
 end
-
-#task_4___compute_circle_parameter(31.41592653)
 
 def task_5___check_string_start(strign)
   puts strign.start_with?("if")
 end
 
-task_5___check_string_start("something")
+def task_6___full_name()
+  puts "Input your first name:"
+  first_name = gets.chomp
+
+  puts "Input your last name:"
+  last_name = gets.chomp
+
+  print("Hello #{last_name} #{first_name}")
+end
