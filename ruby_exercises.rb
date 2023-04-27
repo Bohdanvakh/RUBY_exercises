@@ -53,3 +53,18 @@ def task_6___full_name()
 
   print("Hello #{last_name} #{first_name}")
 end
+
+def task_7___create_file()
+  puts "Filename:"
+  file_name = gets.chomp
+  File.new(file_name, "w")
+
+  extension = File.extname(file_name)
+  base_name = File.basename(file_name, extension)
+  path_name = File.dirname(file_name)
+
+  puts "Filename: #{file_name}"
+  puts "Base name: #{base_name}"
+  puts "Extension: #{extension}"
+  puts "Pathname: #{path_name}"
+end
