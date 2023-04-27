@@ -6,12 +6,14 @@ def tasl_1___ruby_version()
   puts "Ruby Version: #{patch_level}"
 end
 
+
 def task_2___date_time()
   date = Time.new
   date_format = date.strftime("%d/%m/%Y %H:%M")
 
   puts "Current Date and Time: " + date_format
 end
+
 
 def task_3___string_n_copy(string, n)
   output = ""
@@ -22,6 +24,7 @@ def task_3___string_n_copy(string, n)
 
   puts output
 end
+
 
 def task_4___compute_circle_parameter()
 
@@ -40,9 +43,11 @@ def task_4___compute_circle_parameter()
   puts area_value
 end
 
+
 def task_5___check_string_start(strign)
   puts strign.start_with?("if")
 end
+
 
 def task_6___full_name()
   puts "Input your first name:"
@@ -53,6 +58,7 @@ def task_6___full_name()
 
   print("Hello #{last_name} #{first_name}")
 end
+
 
 def task_7___create_file()
   puts "Filename:"
