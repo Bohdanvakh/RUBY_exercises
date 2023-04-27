@@ -67,5 +67,32 @@ end
 
 
 def task_26___total_marks()
+  subjects = {
+    :Literature => 74,
+    :Science => 89,
+    :Math =>91
+  }
+  total_marks = subjects.values.sum
 
+  puts "Total Marks: " + total_marks.to_s
+end
+
+
+def task_27___specified_character(character)
+  20.times do
+    print character
+  end
+end
+
+
+def task_28___leap_year(year)
+  if year % 400 == 0
+    puts year.to_s + " is leap year"
+  elsif year % 100 == 0
+    puts year.to_s + " is not leap year"
+  elsif year % 4 == 0
+    puts year.to_s + " is leap year"
+  else
+    puts year.to_s + " is not leap year"
+  end
 end
