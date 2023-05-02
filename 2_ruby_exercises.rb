@@ -24,7 +24,7 @@ def t_2__uppercase_and_remove()
   end.join
 
   last_uppercase_index = result.rindex(/[A-Z]/)
-  return puts (result = result[0..last_uppercase_index-1]) if last_uppercase_index
+  puts (result = result[0..last_uppercase_index-1])
 end
 
 def t_3__change_word()
@@ -43,18 +43,19 @@ def t_3__change_word()
   end
 end
 
-def t_4__array_of_words(arr, index, str, delete = false)
-
+def t_4__array_of_words(arr, replacer, delete = false)
   if delete
-    arr.delete_at(index)
+    arr.delete_at(arr.index(replacer))
+  elsif arr.index(replacer).nil?
+    puts "String not found in array"
   else
-    arr.insert(index, str)
+    arr << replacer
   end
 
   print arr
 end
-#array = ["one", "two", "three"]
-#t_4__array_of_words(array, 3, "four")
+# array = ["one", "two", "three"]
+# t_4__array_of_words(array, "three", true)
 
 def t_5__check_parentheses(exp)
   stack = []
@@ -67,13 +68,14 @@ def t_5__check_parentheses(exp)
       stack.push(char)
     elsif closing_parentheses.include?(char)
       if stack.empty? || stack.pop != parentheses_pairs[char]
-        puts false
+        return false
       end
     end
   end
 
-  puts stack.empty?
+  return stack.empty?
 end
+#t_5__check_parentheses("(}]{{}}(()))") # returns one value
 
 def t_6__calculator()
   puts "Введіть вираз: "
@@ -81,9 +83,9 @@ def t_6__calculator()
 
   unless exp.match?(/^[0-9+\-*\/\(\)\s]+$/)
     puts "Вираз введено некоректно"
+  else
+    puts eval(exp)
   end
-
-  puts eval(exp)
 end
 
 # не зовсім впевнений що правильно зрозумів завдання
@@ -106,7 +108,6 @@ def t_8__string_to_int(str)
   end
 end
 
-# we can use "numbers_and_words" gem
 def t_9__number_to_string()
   puts "Enter a number between 1 and 1000000:"
   number = gets.chomp.to_i
@@ -116,8 +117,6 @@ def t_9__number_to_string()
     puts "invalid number"
   end
 end
-
-t_9__number_to_string()
 
 def t_10__is_palindrome(str)
   str = str.downcase.gsub(/\s+/, "")
@@ -130,5 +129,5 @@ def t_11__word_repetition()
   puts "Enter a word:"
   word = gets.chomp
 
-  puts str.downcase.scan(word).count
+  puts str.downcase.split(" ").count(word.downcase)
 end
