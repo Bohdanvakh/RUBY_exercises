@@ -1,12 +1,8 @@
 def t_28__number_frequency(arr)
   puts "Original array:"
   print arr
-  num_frequency = arr.inject(Hash.new(0)) do |h, e|
-    h[e] += 1
-    h
-  end
   puts "\nFrequency of numbers:"
-  print num_frequency
+  print arr.group_by(&:itself).transform_values!(&:size)
 end
 
 def t_29__identical_items(arr)
@@ -14,7 +10,7 @@ def t_29__identical_items(arr)
   print arr
   puts "\nIf all items are identical?"
 
-  print arr.all? { |e| e == arr[0] }
+  puts arr.uniq.count == 1
 end
 
 def t_30__array_specified_str(arr, str)
@@ -82,14 +78,10 @@ def t_39__smallest_nonpaired_num(arr)
 end
 
 def t_40__rotate_arr(arr, k, shift_left = false)
-  if shift_left
-    k.times do
-      arr.push(arr.shift)
-    end
-  else
-    k.times do
-      arr.unshift(arr.pop)
-    end
+  method = shift_left ? 'push' : 'unshift'
+  k.times do
+    arr.send(method, shift_left ? arr.shift : arr.pop)
   end
   print arr
 end
+t_40__rotate_arr([1, 2, 3, 4, 5, 6, 7, 8, 9], 3, true)
